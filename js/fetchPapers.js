@@ -33,6 +33,8 @@ async function fetchArXivPapers() {
           <title>Latest Papers on Pancreatic Cancer</title>
           <link rel="stylesheet" href="css/styles.css">
           <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+          <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
+
       </head>
       <body>
           <header>
