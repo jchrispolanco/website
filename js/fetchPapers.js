@@ -92,6 +92,7 @@ async function fetchArXivPapers() {
       </html>
     `;
 
+    console.log("Running fetchPapers.js...");
     const outputPath = './arxiv.html';
     fs.writeFileSync(outputPath, content);
     console.log(`arxiv.html has been updated at: ${outputPath}`);
