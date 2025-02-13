@@ -1,0 +1,32 @@
+name: Update arXiv Papers Daily
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+
+jobs:
+  update-papers:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install node-fetch@2 jsdom
+
+    - name: Run fetchPapers script
+      run: node fetchPapers.js
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.name "GitHub Actions"
+        git config --local user.email "actions@github.com"
+        git add arxiv.html
+        git commit -m "Update arxiv.html with the latest papers"
+        git push
