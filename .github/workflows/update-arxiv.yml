@@ -23,3 +23,11 @@ jobs:
 
     - name: Run fetchPapers script
       run: node js/fetchPapers.js  # Specify the path to fetchPapers.js
+    
+    - name: Commit and push changes
+      run: |
+        git config --local user.name "GitHub Actions"
+        git config --local user.email "actions@github.com"
+        git add arxiv.html
+        git commit -m "Update arxiv.html with the latest papers"
+        git push
