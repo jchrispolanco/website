@@ -5,7 +5,7 @@ const { JSDOM } = require('jsdom');
 async function fetchArXivPapers() {
   const baseUrl = "http://export.arxiv.org/api/query?";
   const query = {
-    search_query: "abs:pancreas OR abs:pancreatic", // Search for papers mentioning "pancreas" or "pancreatic" in the abstract
+    search_query: "abs:pancreatic cancer OR abs:pancreatic neoplasms",
     start: 0,
     max_results: 10,
     sortBy: "submittedDate",
