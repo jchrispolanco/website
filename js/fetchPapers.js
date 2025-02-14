@@ -90,6 +90,7 @@ async function fetchArXivPapers() {
                   <p>&copy; 2025 My Coding Blog (J. Christopher Polanco).</p>
               </div>
           </footer>
+          <script src="js/scripts.js"></script>
       </body>
       </html>
     `;
