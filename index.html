@@ -3,53 +3,338 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coding Blog | J. Christopher Polanco, MD MS MPH</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <title>Post PD 30-Day Readmission Risk Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .container {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .form-group label {
+            flex: 1;
+            padding-right: 15px;
+        }
+        .form-group .points {
+            width: 80px;
+            text-align: center;
+            font-weight: bold;
+        }
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #results {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            display: none;
+        }
+        .low-risk {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .moderate-risk {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .high-risk {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Welcome to My Coding Blog</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="pacman.html">Play Pac-Man</a></li>
-                    <li><a href="arxiv.html">Latest Papers</a></li>
-                </ul>
-            </nav>
+    <h1>Post Pancreatoduodenectomy (PD) 30-Day Readmission Risk Calculator</h1>
+    
+    <div class="container">
+        <p>Select all conditions that apply to the patient:</p>
+        
+        <form id="risk-calculator">
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="htn"> 
+                    History of hypertension (HTN)
+                </label>
+                <span class="points">1 point</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="surgical_drain"> 
+                    Presence of surgical drain at discharge
+                </label>
+                <span class="points">1 point</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="copd"> 
+                    History of chronic obstructive pulmonary disease (COPD)
+                </label>
+                <span class="points">2 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="malignant_tumor"> 
+                    Malignant tumor histology (vs. benign)
+                </label>
+                <span class="points">2 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="home_discharge"> 
+                    Discharged to home (vs. rehab/facility)
+                </label>
+                <span class="points">2 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="mi"> 
+                    Postoperative myocardial infarction (MI)
+                </label>
+                <span class="points">3 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="ssi"> 
+                    Surgical site infection (SSI)
+                </label>
+                <span class="points">3 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="reoperation"> 
+                    Reoperation during index admission
+                </label>
+                <span class="points">3 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="percutaneous_drain"> 
+                    Presence of percutaneous drain (placed post-op)
+                </label>
+                <span class="points">3 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="septic_shock"> 
+                    Postoperative septic shock
+                </label>
+                <span class="points">4 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="dge"> 
+                    Delayed gastric emptying (DGE)
+                </label>
+                <span class="points">4 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="sepsis"> 
+                    Postoperative sepsis (non-septic shock)
+                </label>
+                <span class="points">5 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="renal_failure"> 
+                    Acute renal insufficiency/failure (new onset)
+                </label>
+                <span class="points">5 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="dvt_vte"> 
+                    Deep vein thrombosis (DVT) / VTE
+                </label>
+                <span class="points">6 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="wound_dehiscence"> 
+                    Wound dehiscence (deep incision separation)
+                </label>
+                <span class="points">7 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="organ_space_infection"> 
+                    Organ-space infection (intra-abdominal abscess)
+                </label>
+                <span class="points">9 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="stroke"> 
+                    Cerebrovascular accident (stroke, CVA)
+                </label>
+                <span class="points">11 points</span>
+            </div>
+            
+            <button type="button" onclick="calculateRisk()">Calculate Risk</button>
+        </form>
+        
+        <div id="results"></div>
+        
+        <div id="summary" style="margin-top: 20px; display: none;">
+            <h3>Risk Score Summary</h3>
+            <table id="risk-factors">
+                <tr>
+                    <th>Risk Factor</th>
+                    <th>Points</th>
+                </tr>
+                <!-- Table rows will be dynamically added here -->
+            </table>
+            <div id="total-score" style="font-weight: bold; font-size: 18px; margin-top: 10px;"></div>
         </div>
-    </header>
-    <main>
-        <div class="container">
-            <section class="introduction">
-                <h2>About Me</h2>
-                <p>Welcome! I'm J. Christopher Polanco, MD, a General Surgery resident with a passion for combining medical expertise with data science and epidemiology. Currently, I'm pursuing a PhD in Epidemiology, focusing on leveraging computational methods and big data analytics to improve surgical outcomes and public health understanding.</p>
+    </div>
+    
+    <script>
+        const riskFactors = {
+            "htn": {name: "History of hypertension (HTN)", points: 1},
+            "surgical_drain": {name: "Presence of surgical drain at discharge", points: 1},
+            "copd": {name: "History of chronic obstructive pulmonary disease (COPD)", points: 2},
+            "malignant_tumor": {name: "Malignant tumor histology (vs. benign)", points: 2},
+            "home_discharge": {name: "Discharged to home (vs. rehab/facility)", points: 2},
+            "mi": {name: "Postoperative myocardial infarction (MI)", points: 3},
+            "ssi": {name: "Surgical site infection (SSI)", points: 3},
+            "reoperation": {name: "Reoperation during index admission", points: 3},
+            "percutaneous_drain": {name: "Presence of percutaneous drain (placed post-op)", points: 3},
+            "septic_shock": {name: "Postoperative septic shock", points: 4},
+            "dge": {name: "Delayed gastric emptying (DGE)", points: 4},
+            "sepsis": {name: "Postoperative sepsis (non-septic shock)", points: 5},
+            "renal_failure": {name: "Acute renal insufficiency/failure (new onset)", points: 5},
+            "dvt_vte": {name: "Deep vein thrombosis (DVT) / VTE", points: 6},
+            "wound_dehiscence": {name: "Wound dehiscence (deep incision separation)", points: 7},
+            "organ_space_infection": {name: "Organ-space infection (intra-abdominal abscess)", points: 9},
+            "stroke": {name: "Cerebrovascular accident (stroke, CVA)", points: 11}
+        };
+
+        function calculateRisk() {
+            let totalPoints = 0;
+            const selectedFactors = [];
+            
+            // Get all checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            
+            // Calculate total points and track selected factors
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    const factor = riskFactors[checkbox.name];
+                    totalPoints += factor.points;
+                    selectedFactors.push(factor);
+                }
+            });
+            
+            // Determine risk category
+            let riskCategory, riskClass;
+            if (totalPoints <= 3) {
+                riskCategory = "Low Risk";
+                riskClass = "low-risk";
+            } else if (totalPoints >= 4 && totalPoints <= 11) {
+                riskCategory = "Moderate Risk";
+                riskClass = "moderate-risk";
+            } else {
+                riskCategory = "High Risk";
+                riskClass = "high-risk";
+            }
+            
+            // Display results
+            const resultsElement = document.getElementById('results');
+            resultsElement.innerHTML = `Total Score: ${totalPoints} - ${riskCategory}`;
+            resultsElement.className = riskClass;
+            resultsElement.style.display = 'block';
+            
+            // Update the summary table
+            const tableBody = document.getElementById('risk-factors');
+            // Clear the table (except header)
+            while (tableBody.rows.length > 1) {
+                tableBody.deleteRow(1);
+            }
+            
+            // Add selected factors to table
+            if (selectedFactors.length > 0) {
+                selectedFactors.forEach(factor => {
+                    const row = tableBody.insertRow();
+                    const cell1 = row.insertCell(0);
+                    const cell2 = row.insertCell(1);
+                    
+                    cell1.textContent = factor.name;
+                    cell2.textContent = factor.points;
+                });
                 
-                <p>As a surgeon-scientist, I'm particularly interested in the intersection of surgical practice, epidemiological research, and computational methods. I'm committed to advancing epidemiological methods and machine learning to analyze large-scale health data, aiming to identify patterns that can improve surgical care and patient outcomes.</p>
-
-                <p>Through this blog, I share my journey in coding and data science, particularly focusing on:</p>
-                <ul>
-                    <li>Medical data analysis and visualization</li>
-                    <li>Statistical programming in R and Python</li>
-                    <li>Machine learning applications in healthcare</li>
-                    <li>Epidemiological methods, in particular causal inference</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>Latest Posts</h2>
-                <p>Stay tuned for my latest coding adventures and tutorials in medical data analysis!</p>
-            </section>
-        </div>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 My Coding Blog (J. Christopher Polanco, MD).</p>
-        </div>
-    </footer>
-    <script src="js/scripts.js"></script>
+                document.getElementById('summary').style.display = 'block';
+                document.getElementById('total-score').textContent = `Total Score: ${totalPoints}`;
+            } else {
+                document.getElementById('summary').style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
