@@ -103,6 +103,30 @@
         <form id="risk-calculator">
             <div class="form-group">
                 <label>
+                    <input type="checkbox" name="no_biliary_stent"> 
+                    NO biliary stent at time of surgery
+                </label>
+                <span class="points">1 point</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="male_gender"> 
+                    Male gender (vs female)
+                </label>
+                <span class="points">1 point</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="bmi_over_30"> 
+                    BMI >30 kg/m² (vs <30)
+                </label>
+                <span class="points">1 point</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
                     <input type="checkbox" name="htn"> 
                     History of hypertension (HTN)
                 </label>
@@ -111,56 +135,40 @@
             
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="surgical_drain"> 
-                    Presence of surgical drain at discharge
+                    <input type="checkbox" name="no_popf"> 
+                    NO post-op pancreatic fistula (POPF) at discharge
                 </label>
-                <span class="points">1 point</span>
+                <span class="points">2 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="benign_tumor"> 
+                    Benign tumor histology (vs malignant)
+                </label>
+                <span class="points">2 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="discharge_not_home"> 
+                    Discharge destination other than home
+                </label>
+                <span class="points">2 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="no_preop_jaundice"> 
+                    NO pre-op jaundice
+                </label>
+                <span class="points">2 points</span>
             </div>
             
             <div class="form-group">
                 <label>
                     <input type="checkbox" name="copd"> 
-                    History of chronic obstructive pulmonary disease (COPD)
-                </label>
-                <span class="points">2 points</span>
-            </div>
-            
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" name="malignant_tumor"> 
-                    Malignant tumor histology (vs. benign)
-                </label>
-                <span class="points">2 points</span>
-            </div>
-            
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" name="home_discharge"> 
-                    Discharged to home (vs. rehab/facility)
-                </label>
-                <span class="points">2 points</span>
-            </div>
-            
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" name="mi"> 
-                    Postoperative myocardial infarction (MI)
-                </label>
-                <span class="points">3 points</span>
-            </div>
-            
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" name="ssi"> 
-                    Surgical site infection (SSI)
-                </label>
-                <span class="points">3 points</span>
-            </div>
-            
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" name="reoperation"> 
-                    Reoperation during index admission
+                    History of COPD
                 </label>
                 <span class="points">3 points</span>
             </div>
@@ -168,23 +176,31 @@
             <div class="form-group">
                 <label>
                     <input type="checkbox" name="percutaneous_drain"> 
-                    Presence of percutaneous drain (placed post-op)
-                </label>
-                <span class="points">3 points</span>
-            </div>
-            
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" name="septic_shock"> 
-                    Postoperative septic shock
+                    Presence of percutaneous drain (post-op)
                 </label>
                 <span class="points">4 points</span>
             </div>
             
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="dge"> 
-                    Delayed gastric emptying (DGE)
+                    <input type="checkbox" name="unplanned_reintubation"> 
+                    Unplanned reintubation
+                </label>
+                <span class="points">4 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="minimally_invasive"> 
+                    Minimally invasive surgery (MIS)
+                </label>
+                <span class="points">4 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="reoperation"> 
+                    Reoperation during index admission
                 </label>
                 <span class="points">4 points</span>
             </div>
@@ -192,49 +208,89 @@
             <div class="form-group">
                 <label>
                     <input type="checkbox" name="sepsis"> 
-                    Postoperative sepsis (non-septic shock)
+                    Post-op sepsis
                 </label>
                 <span class="points">5 points</span>
             </div>
             
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="renal_failure"> 
-                    Acute renal insufficiency/failure (new onset)
-                </label>
-                <span class="points">5 points</span>
-            </div>
-            
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" name="dvt_vte"> 
-                    Postoperative DVT/VTE
+                    <input type="checkbox" name="mi"> 
+                    Post-op myocardial infarction (MI)
                 </label>
                 <span class="points">6 points</span>
             </div>
             
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="wound_dehiscence"> 
-                    Wound dehiscence (deep incision separation)
+                    <input type="checkbox" name="ssi"> 
+                    Surgical site infection (SSI)
+                </label>
+                <span class="points">6 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="chf"> 
+                    History of CHF
+                </label>
+                <span class="points">6 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="septic_shock"> 
+                    Post-op septic shock
                 </label>
                 <span class="points">7 points</span>
             </div>
             
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="organ_space_infection"> 
-                    Organ-space infection (intra-abdominal abscess)
+                    <input type="checkbox" name="dge"> 
+                    Delayed gastric emptying (DGE)
+                </label>
+                <span class="points">7 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="no_failure_ventilator"> 
+                    NO failure to wean the ventilator
                 </label>
                 <span class="points">9 points</span>
             </div>
             
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="stroke"> 
-                    Postoperative CVA
+                    <input type="checkbox" name="wound_dehiscence"> 
+                    Wound dehiscence
+                </label>
+                <span class="points">10 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="dvt_vte"> 
+                    Post-op deep vein thrombosis (DVT)/VTE
+                </label>
+                <span class="points">10 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="cva"> 
+                    Post-op cerebrovascular accident (CVA)
                 </label>
                 <span class="points">11 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="ossi"> 
+                    Organ-space surgical site infection (OSSI)
+                </label>
+                <span class="points">14 points</span>
             </div>
             
             <button type="button" onclick="calculateRisk()">Calculate Risk</button>
@@ -257,23 +313,30 @@
     
     <script>
         const riskFactors = {
+            "no_biliary_stent": {name: "NO biliary stent at time of surgery", points: 1},
+            "male_gender": {name: "Male gender (vs female)", points: 1},
+            "bmi_over_30": {name: "BMI >30 kg/m² (vs <30)", points: 1},
             "htn": {name: "History of hypertension (HTN)", points: 1},
-            "surgical_drain": {name: "Presence of surgical drain at discharge", points: 1},
-            "copd": {name: "History of chronic obstructive pulmonary disease (COPD)", points: 2},
-            "malignant_tumor": {name: "Malignant tumor histology (vs. benign)", points: 2},
-            "home_discharge": {name: "Discharged to home (vs. rehab/facility)", points: 2},
-            "mi": {name: "Postoperative myocardial infarction (MI)", points: 3},
-            "ssi": {name: "Surgical site infection (SSI)", points: 3},
-            "reoperation": {name: "Reoperation during index admission", points: 3},
-            "percutaneous_drain": {name: "Presence of percutaneous drain (placed post-op)", points: 3},
-            "septic_shock": {name: "Postoperative septic shock", points: 4},
-            "dge": {name: "Delayed gastric emptying (DGE)", points: 4},
-            "sepsis": {name: "Postoperative sepsis (non-septic shock)", points: 5},
-            "renal_failure": {name: "Acute renal insufficiency/failure (new onset)", points: 5},
-            "dvt_vte": {name: "Postoperative DVT/VTE", points: 6},
-            "wound_dehiscence": {name: "Wound dehiscence (deep incision separation)", points: 7},
-            "organ_space_infection": {name: "Organ-space infection (intra-abdominal abscess)", points: 9},
-            "stroke": {name: "Postoperative CVA", points: 11}
+            "no_popf": {name: "NO post-op pancreatic fistula (POPF) at discharge", points: 2},
+            "benign_tumor": {name: "Benign tumor histology (vs malignant)", points: 2},
+            "discharge_not_home": {name: "Discharge destination other than home", points: 2},
+            "no_preop_jaundice": {name: "NO pre-op jaundice", points: 2},
+            "copd": {name: "History of COPD", points: 3},
+            "percutaneous_drain": {name: "Presence of percutaneous drain (post-op)", points: 4},
+            "unplanned_reintubation": {name: "Unplanned reintubation", points: 4},
+            "minimally_invasive": {name: "Minimally invasive surgery (MIS)", points: 4},
+            "reoperation": {name: "Reoperation during index admission", points: 4},
+            "sepsis": {name: "Post-op sepsis", points: 5},
+            "mi": {name: "Post-op myocardial infarction (MI)", points: 6},
+            "ssi": {name: "Surgical site infection (SSI)", points: 6},
+            "chf": {name: "History of CHF", points: 6},
+            "septic_shock": {name: "Post-op septic shock", points: 7},
+            "dge": {name: "Delayed gastric emptying (DGE)", points: 7},
+            "no_failure_ventilator": {name: "NO failure to wean the ventilator", points: 9},
+            "wound_dehiscence": {name: "Wound dehiscence", points: 10},
+            "dvt_vte": {name: "Post-op deep vein thrombosis (DVT)/VTE", points: 10},
+            "cva": {name: "Post-op cerebrovascular accident (CVA)", points: 11},
+            "ossi": {name: "Organ-space surgical site infection (OSSI)", points: 14}
         };
 
         function calculateRisk() {
@@ -293,21 +356,24 @@
             });
             
             // Determine risk category
-            let riskCategory, riskClass;
+            let riskCategory, riskClass, readmissionRisk;
             if (totalPoints <= 3) {
                 riskCategory = "Low Risk";
                 riskClass = "low-risk";
+                readmissionRisk = "8.11%";
             } else if (totalPoints >= 4 && totalPoints <= 11) {
                 riskCategory = "Moderate Risk";
                 riskClass = "moderate-risk";
+                readmissionRisk = "13.17%";
             } else {
                 riskCategory = "High Risk";
                 riskClass = "high-risk";
+                readmissionRisk = "43.59%";
             }
             
             // Display results
             const resultsElement = document.getElementById('results');
-            resultsElement.innerHTML = `Total Score: ${totalPoints} - ${riskCategory}`;
+            resultsElement.innerHTML = `Total Score: ${totalPoints} - ${riskCategory} (Readmission risk: ${readmissionRisk})`;
             resultsElement.className = riskClass;
             resultsElement.style.display = 'block';
             
