@@ -98,21 +98,13 @@
     <h1>Predischarge Predictors of Early Readmission Post PD — Risk Calculator</h1>
     
     <div class="container">
-        <p>Select all that apply:</p>
+        <p>Select all conditions that apply to the patient:</p>
         
         <form id="risk-calculator">
             <div class="form-group">
                 <label>
                     <input type="checkbox" name="no_biliary_stent"> 
                     NO biliary stent at time of surgery
-                </label>
-                <span class="points">1 point</span>
-            </div>
-            
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" name="male_gender"> 
-                    Male gender (vs female)
                 </label>
                 <span class="points">1 point</span>
             </div>
@@ -127,6 +119,14 @@
             
             <div class="form-group">
                 <label>
+                    <input type="checkbox" name="male_gender"> 
+                    Male gender (vs female)
+                </label>
+                <span class="points">1 point</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
                     <input type="checkbox" name="htn"> 
                     History of hypertension (HTN)
                 </label>
@@ -135,16 +135,16 @@
             
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="no_popf"> 
-                    NO post-op pancreatic fistula (POPF) at discharge
+                    <input type="checkbox" name="no_preop_jaundice"> 
+                    NO pre-op jaundice
                 </label>
                 <span class="points">2 points</span>
             </div>
             
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="benign_tumor"> 
-                    Benign tumor histology (vs malignant)
+                    <input type="checkbox" name="no_popf"> 
+                    NO post-op pancreatic fistula (POPF) at discharge
                 </label>
                 <span class="points">2 points</span>
             </div>
@@ -159,10 +159,18 @@
             
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="no_preop_jaundice"> 
-                    NO pre-op jaundice
+                    <input type="checkbox" name="benign_tumor"> 
+                    Benign tumor histology (vs malignant)
                 </label>
                 <span class="points">2 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="unplanned_reintubation"> 
+                    Unplanned reintubation
+                </label>
+                <span class="points">3 points</span>
             </div>
             
             <div class="form-group">
@@ -183,8 +191,8 @@
             
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="unplanned_reintubation"> 
-                    Unplanned reintubation
+                    <input type="checkbox" name="reoperation"> 
+                    Reoperation during index admission
                 </label>
                 <span class="points">4 points</span>
             </div>
@@ -199,24 +207,16 @@
             
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="reoperation"> 
-                    Reoperation during index admission
-                </label>
-                <span class="points">4 points</span>
-            </div>
-            
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" name="sepsis"> 
-                    Post-op sepsis
+                    <input type="checkbox" name="mi"> 
+                    Post-op myocardial infarction (MI)
                 </label>
                 <span class="points">5 points</span>
             </div>
             
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="mi"> 
-                    Post-op myocardial infarction (MI)
+                    <input type="checkbox" name="sepsis"> 
+                    Post-op sepsis
                 </label>
                 <span class="points">6 points</span>
             </div>
@@ -239,18 +239,34 @@
             
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="septic_shock"> 
-                    Post-op septic shock
+                    <input type="checkbox" name="dge"> 
+                    Delayed gastric emptying (DGE)
                 </label>
                 <span class="points">7 points</span>
             </div>
             
             <div class="form-group">
                 <label>
-                    <input type="checkbox" name="dge"> 
-                    Delayed gastric emptying (DGE)
+                    <input type="checkbox" name="septic_shock"> 
+                    Post-op septic shock
                 </label>
-                <span class="points">7 points</span>
+                <span class="points">8 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="dvt_vte"> 
+                    Post-op deep vein thrombosis (DVT)/VTE
+                </label>
+                <span class="points">9 points</span>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="pe"> 
+                    Post-op PE
+                </label>
+                <span class="points">9 points</span>
             </div>
             
             <div class="form-group">
@@ -265,14 +281,6 @@
                 <label>
                     <input type="checkbox" name="wound_dehiscence"> 
                     Wound dehiscence
-                </label>
-                <span class="points">10 points</span>
-            </div>
-            
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" name="dvt_vte"> 
-                    Post-op deep vein thrombosis (DVT)/VTE
                 </label>
                 <span class="points">10 points</span>
             </div>
@@ -314,27 +322,28 @@
     <script>
         const riskFactors = {
             "no_biliary_stent": {name: "NO biliary stent at time of surgery", points: 1},
-            "male_gender": {name: "Male gender (vs female)", points: 1},
             "bmi_over_30": {name: "BMI >30 kg/m² (vs <30)", points: 1},
+            "male_gender": {name: "Male gender (vs female)", points: 1},
             "htn": {name: "History of hypertension (HTN)", points: 1},
-            "no_popf": {name: "NO post-op pancreatic fistula (POPF) at discharge", points: 2},
-            "benign_tumor": {name: "Benign tumor histology (vs malignant)", points: 2},
-            "discharge_not_home": {name: "Discharge destination other than home", points: 2},
             "no_preop_jaundice": {name: "NO pre-op jaundice", points: 2},
+            "no_popf": {name: "NO post-op pancreatic fistula (POPF) at discharge", points: 2},
+            "discharge_not_home": {name: "Discharge destination other than home", points: 2},
+            "benign_tumor": {name: "Benign tumor histology (vs malignant)", points: 2},
+            "unplanned_reintubation": {name: "Unplanned reintubation", points: 3},
             "copd": {name: "History of COPD", points: 3},
             "percutaneous_drain": {name: "Presence of percutaneous drain (post-op)", points: 4},
-            "unplanned_reintubation": {name: "Unplanned reintubation", points: 4},
-            "minimally_invasive": {name: "Minimally invasive surgery (MIS)", points: 4},
             "reoperation": {name: "Reoperation during index admission", points: 4},
-            "sepsis": {name: "Post-op sepsis", points: 5},
-            "mi": {name: "Post-op myocardial infarction (MI)", points: 6},
+            "minimally_invasive": {name: "Minimally invasive surgery (MIS)", points: 4},
+            "mi": {name: "Post-op myocardial infarction (MI)", points: 5},
+            "sepsis": {name: "Post-op sepsis", points: 6},
             "ssi": {name: "Surgical site infection (SSI)", points: 6},
             "chf": {name: "History of CHF", points: 6},
-            "septic_shock": {name: "Post-op septic shock", points: 7},
             "dge": {name: "Delayed gastric emptying (DGE)", points: 7},
+            "septic_shock": {name: "Post-op septic shock", points: 8},
+            "dvt_vte": {name: "Post-op deep vein thrombosis (DVT)/VTE", points: 9},
+            "pe": {name: "Post-op PE", points: 9},
             "no_failure_ventilator": {name: "NO failure to wean the ventilator", points: 9},
             "wound_dehiscence": {name: "Wound dehiscence", points: 10},
-            "dvt_vte": {name: "Post-op deep vein thrombosis (DVT)/VTE", points: 10},
             "cva": {name: "Post-op cerebrovascular accident (CVA)", points: 11},
             "ossi": {name: "Organ-space surgical site infection (OSSI)", points: 14}
         };
@@ -355,20 +364,20 @@
                 }
             });
             
-            // Determine risk category with the new thresholds
+            // Determine risk category with the updated thresholds
             let riskCategory, riskClass, readmissionRisk;
             if (totalPoints <= 15) {
                 riskCategory = "Low Risk";
                 riskClass = "low-risk";
-                readmissionRisk = "8.11%";
-            } else if (totalPoints > 15 && totalPoints <= 26) {
+                readmissionRisk = "8.10%";
+            } else if (totalPoints > 15 && totalPoints <= 27) {
                 riskCategory = "Moderate Risk";
                 riskClass = "moderate-risk";
-                readmissionRisk = "13.17%";
+                readmissionRisk = "13.34%";
             } else {
                 riskCategory = "High Risk";
                 riskClass = "high-risk";
-                readmissionRisk = "43.59%";
+                readmissionRisk = "45.01%";
             }
             
             // Display results
