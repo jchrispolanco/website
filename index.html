@@ -355,13 +355,13 @@
                 }
             });
             
-            // Determine risk category
+            // Determine risk category with the new thresholds
             let riskCategory, riskClass, readmissionRisk;
-            if (totalPoints <= 3) {
+            if (totalPoints <= 15) {
                 riskCategory = "Low Risk";
                 riskClass = "low-risk";
                 readmissionRisk = "8.11%";
-            } else if (totalPoints >= 4 && totalPoints <= 11) {
+            } else if (totalPoints > 15 && totalPoints <= 26) {
                 riskCategory = "Moderate Risk";
                 riskClass = "moderate-risk";
                 readmissionRisk = "13.17%";
