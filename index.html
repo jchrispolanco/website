@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="J. Christopher Polanco — Surgeon-Epidemiologist in training. HPB surgery, causal inference, outcomes research." />
+  <title>J. Christopher Polanco | Surgeon-Epidemiologist (HPB & Causal Inference)</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a2f;
+      --muted:#a9b6d3;
+      --text:#e9efff;
+      --accent:#7aa2ff;
+      --accent2:#66e3c4;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --radius:16px;
+      --max: 1040px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(122,162,255,.35), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(102,227,196,.22), transparent 55%),
+        radial-gradient(800px 500px at 50% 110%, rgba(122,162,255,.16), transparent 55%),
+        var(--bg);
+      line-height:1.5;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{ text-decoration:underline }
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 64px}
+    header{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:12px;
+    }
+    @media (max-width: 880px){
+      header{grid-template-columns:1fr}
+    }
+    .card{
+      background: rgba(15,26,47,.86);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero{
+      padding:26px 26px 22px;
+      position:relative;
+    }
+    .tagline{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin:12px 0 0;
+    }
+    .pill{
+      display:inline-flex; align-items:center;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    h1{
+      margin:0;
+      font-size: 34px;
+      line-height:1.15;
+      letter-spacing:-.6px;
+    }
+    .subtitle{
+      margin:10px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 70ch;
+    }
+    .cta{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:16px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(122,162,255,.12);
+      color: var(--text);
+      font-weight:600;
+      transition: transform .08s ease, background .2s ease;
+    }
+    .btn:hover{ text-decoration:none; background: rgba(122,162,255,.20) }
+    .btn:active{ transform: translateY(1px) }
+    .btn.secondary{ background: rgba(102,227,196,.12) }
+    .btn.secondary:hover{ background: rgba(102,227,196,.20) }
+
+    .sidebar{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .kpi{
+      padding:14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+    }
+    .kpi .label{ color: var(--muted); font-size: 12px; text-transform:uppercase; letter-spacing:.12em }
+    .kpi .value{ margin-top:6px; font-weight:700; font-size: 14px; line-height:1.25 }
+    .kpi .value small{ color: var(--muted); font-weight:600 }
+
+    nav{
+      margin-top:18px;
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+    nav a{
+      display:inline-flex; align-items:center;
+      padding:8px 10px;
+      border-radius: 10px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    nav a:hover{ color: var(--text); text-decoration:none; border-color: rgba(255,255,255,.18) }
+
+    main{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+    @media (max-width: 980px){
+      main{grid-template-columns:1fr}
+    }
+    section{ padding:18px }
+    h2{
+      margin:0 0 10px;
+      font-size: 16px;
+      letter-spacing:.2px;
+    }
+    .muted{ color: var(--muted) }
+    ul{ margin:10px 0 0 18px; padding:0 }
+    li{ margin:8px 0 }
+    .meta{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(233,239,255,.78);
+      opacity:.95;
+    }
+    .grid-1{ grid-column: 1 / -1; }
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 700px){
+      .two-col{grid-template-columns:1fr}
+    }
+    .item{
+      padding:14px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .item b{ display:block; margin-bottom:6px }
+    .item .when{ color: var(--muted); font-size: 13px }
+    .item .where{ color: rgba(233,239,255,.85); font-size: 13px; margin-top:4px }
+    .small{ font-size: 13px }
+    footer{
+      margin-top:18px;
+      padding:18px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .badge{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      margin: 6px 6px 0 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .sr-only{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="card hero">
+        <h1>J. Christopher Polanco</h1>
+        <h2>MD MS MPH PhD(s)</h2>
+        <p class="subtitle">
+          Surgeon-Epidemiologist in training focused on <b>hepato-pancreato-biliary (HPB) surgery</b> and
+          <b>causal inference</b> for surgical outcomes research.
+        </p>
+
+        <div class="tagline">
+          <span class="pill">HPB / Surgical Oncology</span>
+          <span class="pill">Causal Inference & Target Trial Emulation</span>
+          <span class="pill">Outcomes Research & Surgical Education</span>
+          <span class="pill">Harvard / BIDMC</span>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="mailto:jpolanc2@bidmc.harvard.edu" aria-label="Email">
+            ✉️ <span>Email</span>
+          </a>
+          <a class="btn secondary" href="https://irinitiative.com/" target="_blank" rel="noreferrer">
+            🌐 <span>International Research Initiative</span>
+          </a>
+          <!-- Optional: add your Google Scholar / ORCID / GitHub links here -->
+          <!--
+          <a class="btn" href="https://scholar.google.com/..." target="_blank" rel="noreferrer">🎓 Google Scholar</a>
+          <a class="btn" href="https://orcid.org/..." target="_blank" rel="noreferrer">🧬 ORCID</a>
+          -->
+        </div>
+
+        <nav aria-label="Section navigation">
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#roles">Leadership & Roles</a>
+          <a href="#awards">Honors</a>
+          <a href="#talks">Invited Talks</a>
+          <a href="#publications">Publications</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <aside class="card sidebar" aria-label="Quick facts">
+        <div class="kpi">
+          <div class="label">Current Training</div>
+          <div class="value">
+            PhD (Population Health Sciences—Epidemiology[Causal Inference]) + ScM (Biostatistics)<br/>
+            <small>Harvard T.H. Chan / Harvard GSAS</small>
+          </div>
+        </div>
+
+        <div class="kpi">
+          <div class="label">Clinical Appointment</div>
+          <div class="value">
+            Clinical Fellow, General Surgery<br/>
+            <small>Beth Israel Deaconess Medical Center / HMS</small>
+          </div>
+        </div>
+
+        <div class="kpi">
+          <div class="label">Primary Mentor(s)</div>
+          <div class="value">
+            Miguel Hernán, MD, ScM, DrPH<br/>
+            <small>(Causal Inference)</small><br/><br/>
+            Tara S. Kent, MD, MS, FACS<br/>
+            <small>(HPB Outcomes & Education)</small>
+          </div>
+        </div>
+
+        <div class="kpi">
+          <div class="label">Location</div>
+          <div class="value">
+            Boston, MA, USA
+            <div class="meta">110 Francis St, Suite 9B • Boston, MA 02215</div>
+          </div>
+        </div>
+      </aside>
+    </header>
+
+    <main>
+      <section id="about" class="card grid-1">
+        <h2>About</h2>
+        <p class="muted">
+          I am an aspiring Surgeon-Epidemiologist in training with a focus on HPB surgical diseases and the application
+          of causal inference methods in observational studies. My training spans clinico-surgical medicine, public health,
+          and quantitative methods research. I aim to contribute to evidence-based advancements in “causal” HPB surgical care
+          by estimating the causal effects of different treatment strategies across pancreatic malignancies.
+        </p>
+        <div class="badge">Causal inference</div>
+        <div class="badge">Target trial emulation</div>
+        <div class="badge">Surgical outcomes</div>
+        <div class="badge">Surgical education</div>
+        <div class="badge">Real-world evidence</div>
+      </section>
+
+      <section id="education" class="card">
+        <h2>Education & Training</h2>
+        <ul>
+          <li>
+            <b>PhD Student, Population Health Sciences (Epidemiology)</b> — Harvard T.H. Chan School of Public Health / Harvard GSAS
+            <div class="muted small">Aug 2024 – Present • Mentor: Miguel Hernán</div>
+          </li>
+          <li>
+            <b>ScM Student, Biostatistics</b> — Harvard T.H. Chan School of Public Health
+            <div class="muted small">Aug 2024 – Present • Mentor: Miguel Hernán</div>
+          </li>
+          <li>
+            <b>Research Resident, General Surgery</b> — Beth Israel Deaconess Medical Center / Harvard Medical School
+            <div class="muted small">Jun 2024 – Present • Mentor: Tara S. Kent</div>
+          </li>
+          <li>
+            <b>MPH, Clinical Effectiveness</b> — Harvard T.H. Chan School of Public Health
+            <div class="muted small">Jul 2020 – May 2021 • GPA 3.94/4.00</div>
+          </li>
+          <li>
+            <b>MSc, Clinical Research</b> — Dresden International University (Germany)
+            <div class="muted small">Dec 2018 – May 2020 • GPA 4.00/4.00</div>
+          </li>
+          <li>
+            <b>MD, Doctor of Medicine</b> — Pontificia Universidad Católica Madre y Maestra (Dominican Republic)
+            <div class="muted small">Aug 2013 – Jun 2017 • summa cum laude • Class valedictorian</div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="roles" class="card">
+        <h2>Leadership & Professional Roles</h2>
+        <div class="two-col">
+          <div class="item">
+            <b>Program Director</b>
+            <div class="when">Mar 2025 – Present</div>
+            <div class="where">International Research Initiative (IRI)</div>
+          </div>
+          <div class="item">
+            <b>Director of Academic Affairs (Leadership Member)</b>
+            <div class="when">Jan 2024 – Present</div>
+            <div class="where">International Research Initiative (IRI)</div>
+          </div>
+          <div class="item">
+            <b>Administrative Resident for Research</b>
+            <div class="when">May 2024 – May 2026</div>
+            <div class="where">BIDMC Dept. of Surgery (Residency Admin Team)</div>
+          </div>
+          <div class="item">
+            <b>Co-Director, Mentorship Program (Preliminary Residents)</b>
+            <div class="when">Jun 2023 – Jun 2025</div>
+            <div class="where">BIDMC Dept. of Surgery</div>
+          </div>
+        </div>
+
+        <p class="muted small" style="margin-top:12px;">
+          Additional teaching/service roles include Senior Teaching Assistant (PPCR), Teaching Fellow (Harvard Biostatistics),
+          and conference panel chair responsibilities.
+        </p>
+      </section>
+
+      <section id="awards" class="card">
+        <h2>Honors & Awards (Selected)</h2>
+        <ul>
+          <li><b>Sandra and Richard Cummings Research Fellowship</b> — BIDMC Dept. of Surgery (Jul 2025)</li>
+          <li><b>AHPBA Foundation Travel Grant</b> — Americas HPB Association (Mar 2025)</li>
+          <li><b>SBAS Diverse Surgeons Initiative 2.0 Awardee</b> — Society of Black Academic Surgeons (Nov 2023)</li>
+          <li><b>Outstanding Teaching Assistant Award</b> — PPCR (awarded repeatedly, 2019–2023)</li>
+          <li><b>IRI Class of 2020</b> — Valedictorian; Best Clinical Research Poster; Peer-to-Peer Merit</li>
+        </ul>
+      </section>
+
+      <section id="talks" class="card">
+        <h2>Invited Talks (Selected)</h2>
+        <ul>
+          <li>
+            <b>Workshop on Clinical Research in Precision Medicine, Rare Diseases, and Pharmacogenomics</b> (Qatar)
+            <div class="muted small">Dec 2025 (Upcoming) • Keynote lectures on study design, causal inference foundations, innovative trial designs</div>
+          </li>
+          <li>
+            <b>Association and Causal Inference: A Practical Introduction</b>
+            <div class="muted small">Aug 2025 • Invited by the Academy of Sciences of the Dominican Republic & Fundación Madre y Maestra</div>
+          </li>
+          <li>
+            <b>Brief Overview of DAGs; Multivariate vs Multivariable Models</b>
+            <div class="muted small">Dec 2024 • PPCR international immersion course (Brazil)</div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="publications" class="card grid-1">
+        <h2>Research & Publications (Selected)</h2>
+        <p class="muted small">
+          A short selection from your CV. Consider adding buttons to PubMed/Google Scholar for the full list.
+        </p>
+
+        <div class="two-col">
+          <div class="item">
+            <b>Resident Individual Clinical Evaluations: Resident Perspectives And Effectiveness</b>
+            <div class="where small">J Surg Educ. Published online Sep 6, 2025.</div>
+            <div class="muted small">Polanco-Santana JC, et al.</div>
+          </div>
+
+          <div class="item">
+            <b>Intraoperative high dose dexamethasone and postoperative pancreatic fistula</b>
+            <div class="where small">HPB (Oxford). Published online Aug 28, 2025.</div>
+            <div class="muted small">Fligor SC, Polanco-Santana JC, et al.</div>
+          </div>
+
+          <div class="item">
+            <b>Predictors of Non-Home Discharge After Pancreatoduodenectomy in Patients ≥80</b>
+            <div class="where small">HPB (Oxford). 2024;26(3):410-417.</div>
+            <div class="muted small">Chumdermpadetsuk RR, Garland M, Polanco-Santana JC, et al.</div>
+          </div>
+
+          <div class="item">
+            <b>Language Proficiency and Survival in Pancreatic Cancer</b>
+            <div class="where small">J Gastrointest Surg. 2022;26(1):94-103.</div>
+            <div class="muted small">Calvillo-Ortiz R, Polanco-Santana JC, et al.</div>
+          </div>
+        </div>
+
+        <h3 class="sr-only">Under review</h3>
+        <div style="margin-top:14px" class="item">
+          <b>Under review (selected)</b>
+          <ul class="small">
+            <li>Defining a new CCI using ACS-NSQIP for Whipple procedure patients.</li>
+            <li>Predischarge predictors of early readmission after pancreatoduodenectomy: derivation/validation of a risk score.</li>
+            <li>Source of ethnic/racial bias in medical school performance evaluation of general surgery residency applicants.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="skills" class="card">
+        <h2>Skills</h2>
+        <ul>
+          <li><b>Statistical software:</b> STATA, R (expert); SAS, Python (entry)</li>
+          <li><b>Methods:</b> causal inference, target trial emulation, outcomes research</li>
+          <li><b>Interests:</b> HPB surgery, surgical oncology, transplant surgery, surgical education</li>
+          <li><b>Languages:</b> English, Spanish</li>
+        </ul>
+        <div class="muted small" style="margin-top:10px;">
+          Additional background in computer programming (C#, VB.NET, Java, JavaScript, PHP, HTML/CSS).
+        </div>
+      </section>
+
+      <section id="contact" class="card">
+        <h2>Contact</h2>
+        <p class="muted">
+          For research collaboration, speaking invitations, or mentorship/program inquiries:
+        </p>
+        <ul>
+          <li><b>Email:</b> <a href="mailto:jpolanc2@bidmc.harvard.edu">jpolanc2@bidmc.harvard.edu</a></li>
+          <li><b>Phone:</b> +1 (978) 397-0887</li>
+          <li><b>Address:</b> 110 Francis St, Suite 9B, Boston, MA 02215</li>
+          <li><b>IRI:</b> <a href="https://irinitiative.com/" target="_blank" rel="noreferrer">irinitiative.com</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="card">
+      <div>
+        © <span id="y"></span> J. Christopher Polanco • Built for GitHub Pages
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
