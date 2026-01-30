@@ -938,15 +938,15 @@
                     <div class="risk-ranges-title">Risk Category Definitions (Based on Validation Cohort)</div>
                     <div class="risk-range-item">
                         <span class="risk-range-indicator low"></span>
-                        <span><strong>Low Risk:</strong> Score ≤ 20 — Readmission rate ~9.9%</span>
+                        <span><strong>Low Risk:</strong> Score ≤ 30 — Readmission rate ~9.9%</span>
                     </div>
                     <div class="risk-range-item">
                         <span class="risk-range-indicator moderate"></span>
-                        <span><strong>Moderate Risk:</strong> Score 21–41 — Readmission rate ~14.6%</span>
+                        <span><strong>Moderate Risk:</strong> Score 31–51 — Readmission rate ~14.6%</span>
                     </div>
                     <div class="risk-range-item">
                         <span class="risk-range-indicator high"></span>
-                        <span><strong>High Risk:</strong> Score &gt; 41 — Readmission rate ~44.7%</span>
+                        <span><strong>High Risk:</strong> Score &gt; 51 — Readmission rate ~44.7%</span>
                     </div>
                     <p style="font-size: 0.8125rem; color: #718096; margin-top: 0.75rem;">
                         <em>Note: Higher scores indicate higher readmission risk. Score of 0 = minimum possible risk.</em>
@@ -970,9 +970,9 @@
 
     <script>
         // Configuration from LASSO model
-        const CUT_LOW = 20;      // 15th percentile
-        const CUT_HIGH = 41;     // 85th percentile
-        const SHIFT_VALUE = 15;  // Added to raw sum to make min = 0
+        const CUT_LOW = 30;      // 15th percentile (20 + 10 adjustment)
+        const CUT_HIGH = 51;     // 85th percentile (41 + 10 adjustment)
+        const SHIFT_VALUE = 25;  // Added to raw sum to make min = 0 (theoretical minimum is -25)
 
         // Observed readmission rates by risk group (validation cohort)
         const RISK_RATES = {
