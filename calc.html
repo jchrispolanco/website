@@ -36,13 +36,11 @@
             --radius-md: 8px;
             --radius-lg: 12px;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--color-bg);
@@ -50,7 +48,6 @@
             line-height: 1.6;
             min-height: 100vh;
         }
-
         .header {
             background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
             color: white;
@@ -59,7 +56,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .header::before {
             content: '';
             position: absolute;
@@ -70,14 +66,12 @@
             background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             opacity: 0.5;
         }
-
         .header-content {
             position: relative;
             z-index: 1;
             max-width: 800px;
             margin: 0 auto;
         }
-
         .header h1 {
             font-family: 'Source Serif 4', Georgia, serif;
             font-size: clamp(1.5rem, 4vw, 2.25rem);
@@ -85,20 +79,17 @@
             margin-bottom: 0.5rem;
             letter-spacing: -0.02em;
         }
-
         .header p {
             font-size: 1rem;
             opacity: 0.9;
             max-width: 600px;
             margin: 0 auto;
         }
-
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 2rem 1.5rem 4rem;
         }
-
         .instructions {
             background: var(--color-surface);
             border-radius: var(--radius-lg);
@@ -107,30 +98,40 @@
             box-shadow: var(--shadow-sm);
             border-left: 4px solid var(--color-primary);
         }
-
         .instructions h2 {
             font-family: 'Source Serif 4', Georgia, serif;
             font-size: 1.125rem;
             color: var(--color-primary);
             margin-bottom: 0.5rem;
         }
-
         .instructions p {
             color: var(--color-text-muted);
             font-size: 0.9375rem;
         }
-
         .instructions ul {
             margin-top: 0.75rem;
             margin-left: 1.25rem;
             color: var(--color-text-muted);
             font-size: 0.875rem;
         }
-
         .instructions li {
             margin-bottom: 0.25rem;
         }
-
+        .important-note {
+            background: #fffbeb;
+            border: 1px solid #fbbf24;
+            border-radius: var(--radius-md);
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+        }
+        .important-note strong {
+            color: #92400e;
+        }
+        .important-note p {
+            color: #78350f;
+            margin: 0;
+        }
         .risk-factors {
             background: var(--color-surface);
             border-radius: var(--radius-lg);
@@ -138,7 +139,6 @@
             overflow: hidden;
             margin-bottom: 2rem;
         }
-
         .section-header {
             background: var(--color-primary);
             color: white;
@@ -149,28 +149,19 @@
             align-items: center;
             gap: 0.5rem;
         }
-
         .section-header.protective {
             background: #285e61;
         }
-
-        .section-header.recovery {
-            background: #5a67d8;
-        }
-
         .section-header svg {
             width: 20px;
             height: 20px;
         }
-
         .category {
             border-bottom: 1px solid var(--color-border);
         }
-
         .category:last-child {
             border-bottom: none;
         }
-
         .category-header {
             background: #f7fafc;
             padding: 0.75rem 1.5rem;
@@ -181,16 +172,13 @@
             letter-spacing: 0.05em;
             border-bottom: 1px solid var(--color-border);
         }
-
         .category-header.protective {
             color: #285e61;
             background: #e6fffa;
         }
-
         .factor-list {
             padding: 0.5rem 0;
         }
-
         .factor-item {
             display: flex;
             align-items: center;
@@ -199,27 +187,18 @@
             transition: background-color 0.15s ease;
             border-bottom: 1px solid #f0f4f8;
         }
-
         .factor-item:last-child {
             border-bottom: none;
         }
-
         .factor-item:hover {
             background-color: #f7fafc;
         }
-
         .factor-item.selected {
             background-color: #ebf8ff;
         }
-
         .factor-item.protective.selected {
             background-color: #e6fffa;
         }
-
-        .factor-item.recovery.selected {
-            background-color: #ebf4ff;
-        }
-
         .factor-checkbox {
             width: 20px;
             height: 20px;
@@ -232,26 +211,14 @@
             flex-shrink: 0;
             transition: all 0.15s ease;
         }
-
-        .factor-item.recovery .factor-checkbox {
-            border-radius: 50%;
-        }
-
         .factor-item.selected .factor-checkbox {
             background-color: var(--color-primary);
             border-color: var(--color-primary);
         }
-
         .factor-item.protective.selected .factor-checkbox {
             background-color: #319795;
             border-color: #319795;
         }
-
-        .factor-item.recovery.selected .factor-checkbox {
-            background-color: #5a67d8;
-            border-color: #5a67d8;
-        }
-
         .factor-checkbox svg {
             width: 14px;
             height: 14px;
@@ -260,16 +227,13 @@
             opacity: 0;
             transition: opacity 0.15s ease;
         }
-
         .factor-item.selected .factor-checkbox svg {
             opacity: 1;
         }
-
         .factor-label {
             flex: 1;
             font-size: 0.9375rem;
         }
-
         .factor-points {
             background: var(--color-bg);
             padding: 0.25rem 0.75rem;
@@ -280,48 +244,24 @@
             margin-left: 1rem;
             white-space: nowrap;
         }
-
         .factor-points.positive {
             color: #c53030;
         }
-
         .factor-points.negative {
             color: #276749;
         }
-
-        .factor-points.neutral {
-            color: #718096;
-        }
-
         .factor-item.selected .factor-points {
             background: var(--color-primary);
             color: white;
         }
-
         .factor-item.protective.selected .factor-points {
             background: #319795;
             color: white;
         }
-
-        .factor-item.recovery.selected .factor-points {
-            background: #5a67d8;
-            color: white;
-        }
-
-        .recovery-note {
-            padding: 0.75rem 1.5rem;
-            background: #eef2ff;
-            font-size: 0.8125rem;
-            color: #5a67d8;
-            border-bottom: 1px solid #c7d2fe;
-            font-style: italic;
-        }
-
         .calculate-section {
             text-align: center;
             margin-bottom: 2rem;
         }
-
         .calculate-btn {
             background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
             color: white;
@@ -335,16 +275,13 @@
             transition: all 0.2s ease;
             font-family: inherit;
         }
-
         .calculate-btn:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
-
         .calculate-btn:active {
             transform: translateY(0);
         }
-
         .reset-btn {
             background: transparent;
             color: var(--color-text-muted);
@@ -358,12 +295,10 @@
             transition: all 0.15s ease;
             font-family: inherit;
         }
-
         .reset-btn:hover {
             background: var(--color-bg);
             border-color: var(--color-text-muted);
         }
-
         .results {
             background: var(--color-surface);
             border-radius: var(--radius-lg);
@@ -372,11 +307,9 @@
             display: none;
             animation: slideUp 0.3s ease;
         }
-
         .results.visible {
             display: block;
         }
-
         @keyframes slideUp {
             from {
                 opacity: 0;
@@ -387,7 +320,6 @@
                 transform: translateY(0);
             }
         }
-
         .results-header {
             background: var(--color-primary);
             color: white;
@@ -397,17 +329,14 @@
             align-items: center;
             gap: 0.5rem;
         }
-
         .results-content {
             padding: 1.5rem;
         }
-
         .score-display {
             text-align: center;
             padding: 2rem;
             border-bottom: 1px solid var(--color-border);
         }
-
         .score-label {
             font-size: 0.875rem;
             text-transform: uppercase;
@@ -415,7 +344,6 @@
             color: var(--color-text-muted);
             margin-bottom: 0.5rem;
         }
-
         .score-value {
             font-family: 'Source Serif 4', Georgia, serif;
             font-size: 4rem;
@@ -423,90 +351,73 @@
             color: var(--color-primary);
             line-height: 1;
         }
-
         .score-breakdown {
             font-size: 0.9375rem;
             color: var(--color-text-muted);
             margin-top: 0.75rem;
         }
-
         .score-breakdown span {
             display: inline-block;
             margin: 0 0.5rem;
         }
-
         .score-breakdown .positive { color: #c53030; }
         .score-breakdown .negative { color: #276749; }
-
         .risk-category {
             padding: 1.5rem;
             border-radius: var(--radius-md);
             margin: 1.5rem 0;
             text-align: center;
         }
-
         .risk-category.low {
             background: var(--color-low-risk);
             border: 2px solid var(--color-low-risk-border);
         }
-
         .risk-category.moderate {
             background: var(--color-mod-risk);
             border: 2px solid var(--color-mod-risk-border);
         }
-
         .risk-category.high {
             background: var(--color-high-risk);
             border: 2px solid var(--color-high-risk-border);
         }
-
         .risk-category-label {
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 0.25rem;
         }
-
         .risk-category.low .risk-category-label { color: var(--color-success); }
         .risk-category.moderate .risk-category-label { color: var(--color-warning); }
         .risk-category.high .risk-category-label { color: var(--color-danger); }
-
         .risk-category-title {
             font-family: 'Source Serif 4', Georgia, serif;
             font-size: 1.75rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
-
         .risk-category.low .risk-category-title { color: var(--color-success); }
         .risk-category.moderate .risk-category-title { color: var(--color-warning); }
         .risk-category.high .risk-category-title { color: var(--color-danger); }
-
         .risk-category-desc {
             font-size: 0.9375rem;
         }
-
         .risk-category.low .risk-category-desc { color: #22543d; }
         .risk-category.moderate .risk-category-desc { color: #744210; }
         .risk-category.high .risk-category-desc { color: #742a2a; }
-
         .summary-section {
             margin-top: 1.5rem;
         }
-
         .summary-title {
             font-family: 'Source Serif 4', Georgia, serif;
             font-size: 1rem;
             color: var(--color-primary);
             margin-bottom: 0.75rem;
         }
-
         .summary-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.875rem;
         }
-
         .summary-table th {
             text-align: left;
             padding: 0.75rem;
@@ -514,43 +425,35 @@
             font-weight: 600;
             border-bottom: 2px solid var(--color-border);
         }
-
         .summary-table td {
             padding: 0.75rem;
             border-bottom: 1px solid var(--color-border);
         }
-
         .summary-table .points-col {
             text-align: right;
             font-weight: 600;
             width: 100px;
         }
-
         .summary-table .points-col.positive { color: #c53030; }
         .summary-table .points-col.negative { color: #276749; }
-
         .summary-table .total-row {
             background: #f7fafc;
         }
-
         .summary-table .total-row td {
             border-bottom: none;
         }
-
         .risk-ranges {
             background: #f7fafc;
             padding: 1.25rem;
             border-radius: var(--radius-md);
             margin-top: 1.5rem;
         }
-
         .risk-ranges-title {
             font-weight: 600;
             font-size: 0.875rem;
             margin-bottom: 0.75rem;
             color: var(--color-primary);
         }
-
         .risk-range-item {
             display: flex;
             align-items: center;
@@ -558,18 +461,15 @@
             padding: 0.375rem 0;
             font-size: 0.8125rem;
         }
-
         .risk-range-indicator {
             width: 12px;
             height: 12px;
             border-radius: 50%;
             flex-shrink: 0;
         }
-
         .risk-range-indicator.low { background: var(--color-success); }
         .risk-range-indicator.moderate { background: #d69e2e; }
         .risk-range-indicator.high { background: var(--color-danger); }
-
         .disclaimer {
             margin-top: 1.5rem;
             padding: 1rem 1.25rem;
@@ -578,18 +478,15 @@
             border-radius: var(--radius-md);
             font-size: 0.8125rem;
         }
-
         .disclaimer-title {
             font-weight: 600;
             color: #92400e;
             margin-bottom: 0.5rem;
         }
-
         .disclaimer p {
             color: #78350f;
             line-height: 1.5;
         }
-
         .footer {
             text-align: center;
             padding: 2rem 1.5rem;
@@ -599,43 +496,34 @@
             background: var(--color-surface);
             margin-top: 2rem;
         }
-
         .footer p {
             margin-bottom: 0.25rem;
         }
-
         @media (max-width: 640px) {
             .header {
                 padding: 1.5rem 1rem;
             }
-
             .container {
                 padding: 1.5rem 1rem 3rem;
             }
-
             .factor-item {
                 padding: 0.75rem 1rem;
             }
-
             .factor-label {
                 font-size: 0.875rem;
             }
-
             .factor-points {
                 font-size: 0.75rem;
                 padding: 0.25rem 0.5rem;
             }
-
             .calculate-btn {
                 width: 100%;
                 margin-bottom: 0.75rem;
             }
-
             .reset-btn {
                 width: 100%;
                 margin-left: 0;
             }
-
             .score-value {
                 font-size: 3rem;
             }
@@ -646,7 +534,7 @@
     <header class="header">
         <div class="header-content">
             <h1>Predischarge Readmission Risk Calculator</h1>
-            <p>Post Pancreatoduodenectomy (Whipple Procedure) — LASSO-Derived Prediction Model</p>
+            <p>Post Pancreatoduodenectomy (Whipple Procedure) — LASSO-Derived 13-Factor Prediction Model</p>
         </div>
     </header>
 
@@ -659,47 +547,9 @@
                 <li><span style="color: #276749; font-weight: 600;">Green points (−)</span> indicate protective factors</li>
                 <li><strong>Higher total score = higher readmission risk</strong></li>
             </ul>
-        </div>
-
-        <!-- RECOVERY CATEGORY (Radio-style selection) -->
-        <div class="risk-factors">
-            <div class="section-header recovery">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-                Recovery Category (Select ONE)
-            </div>
-            <div class="recovery-note">
-                Major complications include: OSSI, reoperation, reintubation, septic shock, sepsis, pneumonia, failure to wean from ventilator
-            </div>
-            <div class="factor-list">
-                <div class="factor-item recovery" data-points="-17" data-group="recovery">
-                    <div class="factor-checkbox">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                    <span class="factor-label">Complicated-Managed: Major complication treated during hospitalization</span>
-                    <span class="factor-points negative">−17 points</span>
-                </div>
-                <div class="factor-item recovery" data-points="-4" data-group="recovery">
-                    <div class="factor-checkbox">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                    <span class="factor-label">Uncomplicated-Quick: No major complication, LOS &lt; 5 days</span>
-                    <span class="factor-points negative">−4 points</span>
-                </div>
-                <div class="factor-item recovery" data-points="0" data-group="recovery">
-                    <div class="factor-checkbox">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                    <span class="factor-label">Uncomplicated-Prolonged: No major complication, LOS ≥ 5 days (Reference)</span>
-                    <span class="factor-points neutral">0 points</span>
-                </div>
+            <div class="important-note">
+                <strong>⚠️ Important:</strong>
+                <p>For <strong>Percutaneous Drainage</strong>, count only drains placed <em>during the current hospitalization</em>. Drains placed after discharge should not be counted as they occur after the risk assessment timepoint.</p>
             </div>
         </div>
 
@@ -709,29 +559,20 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
-                Risk-Increasing Factors
+                Risk-Increasing Factors (8 factors)
             </div>
 
             <!-- Postoperative Complications -->
             <div class="category">
                 <div class="category-header">Postoperative Complications</div>
                 <div class="factor-list">
-                    <div class="factor-item" data-points="28">
-                        <div class="factor-checkbox">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <span class="factor-label">Percutaneous drain placement (postoperative)</span>
-                        <span class="factor-points positive">+28 points</span>
-                    </div>
                     <div class="factor-item" data-points="16">
                         <div class="factor-checkbox">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                         </div>
-                        <span class="factor-label">Delayed gastric emptying (DGE)</span>
+                        <span class="factor-label">Percutaneous drainage (placed during this hospitalization)</span>
                         <span class="factor-points positive">+16 points</span>
                     </div>
                     <div class="factor-item" data-points="9">
@@ -740,17 +581,17 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                         </div>
-                        <span class="factor-label">Postoperative pancreatic fistula (POPF)</span>
+                        <span class="factor-label">Delayed gastric emptying (DGE)</span>
                         <span class="factor-points positive">+9 points</span>
                     </div>
-                    <div class="factor-item" data-points="2">
+                    <div class="factor-item" data-points="3">
                         <div class="factor-checkbox">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                         </div>
-                        <span class="factor-label">Blood transfusion during hospitalization</span>
-                        <span class="factor-points positive">+2 points</span>
+                        <span class="factor-label">Clinically relevant POPF (CR-POPF, Grade B/C)</span>
+                        <span class="factor-points positive">+3 points</span>
                     </div>
                 </div>
             </div>
@@ -759,75 +600,23 @@
             <div class="category">
                 <div class="category-header">Patient Comorbidities</div>
                 <div class="factor-list">
-                    <div class="factor-item" data-points="7">
+                    <div class="factor-item" data-points="5">
                         <div class="factor-checkbox">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                         </div>
                         <span class="factor-label">History of congestive heart failure (CHF)</span>
-                        <span class="factor-points positive">+7 points</span>
+                        <span class="factor-points positive">+5 points</span>
                     </div>
-                    <div class="factor-item" data-points="6">
+                    <div class="factor-item" data-points="3">
                         <div class="factor-checkbox">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                         </div>
                         <span class="factor-label">History of COPD</span>
-                        <span class="factor-points positive">+6 points</span>
-                    </div>
-                    <div class="factor-item" data-points="2">
-                        <div class="factor-checkbox">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <span class="factor-label">History of hypertension</span>
-                        <span class="factor-points positive">+2 points</span>
-                    </div>
-                    <div class="factor-item" data-points="2">
-                        <div class="factor-checkbox">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <span class="factor-label">BMI &gt; 30 kg/m²</span>
-                        <span class="factor-points positive">+2 points</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Perioperative Factors -->
-            <div class="category">
-                <div class="category-header">Demographics &amp; Perioperative Factors</div>
-                <div class="factor-list">
-                    <div class="factor-item" data-points="3">
-                        <div class="factor-checkbox">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <span class="factor-label">Neoadjuvant radiation therapy</span>
                         <span class="factor-points positive">+3 points</span>
-                    </div>
-                    <div class="factor-item" data-points="3">
-                        <div class="factor-checkbox">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <span class="factor-label">Minimally invasive surgical approach</span>
-                        <span class="factor-points positive">+3 points</span>
-                    </div>
-                    <div class="factor-item" data-points="2">
-                        <div class="factor-checkbox">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <span class="factor-label">Male gender</span>
-                        <span class="factor-points positive">+2 points</span>
                     </div>
                     <div class="factor-item" data-points="1">
                         <div class="factor-checkbox">
@@ -835,7 +624,32 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                         </div>
-                        <span class="factor-label">Prolonged operative time (&gt; 75th percentile)</span>
+                        <span class="factor-label">History of hypertension</span>
+                        <span class="factor-points positive">+1 point</span>
+                    </div>
+                    <div class="factor-item" data-points="1">
+                        <div class="factor-checkbox">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <span class="factor-label">BMI &gt; 30 kg/m²</span>
+                        <span class="factor-points positive">+1 point</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demographics -->
+            <div class="category">
+                <div class="category-header">Demographics</div>
+                <div class="factor-list">
+                    <div class="factor-item" data-points="1">
+                        <div class="factor-checkbox">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <span class="factor-label">Male sex</span>
                         <span class="factor-points positive">+1 point</span>
                     </div>
                 </div>
@@ -848,38 +662,36 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
-                Protective Factors (Lower Readmission Risk)
+                Protective Factors (5 factors)
+            </div>
+
+            <!-- Recovery Category -->
+            <div class="category">
+                <div class="category-header protective">Recovery Category</div>
+                <div class="factor-list">
+                    <div class="factor-item protective" data-points="-4">
+                        <div class="factor-checkbox">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <span class="factor-label">Uncomplicated-Quick: No major complication AND LOS &lt; 5 days</span>
+                        <span class="factor-points negative">−4 points</span>
+                    </div>
+                </div>
             </div>
 
             <!-- Disease & Preoperative Factors -->
             <div class="category">
                 <div class="category-header protective">Disease &amp; Preoperative Factors</div>
                 <div class="factor-list">
-                    <div class="factor-item protective" data-points="-3">
+                    <div class="factor-item protective" data-points="-2">
                         <div class="factor-checkbox">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                         </div>
                         <span class="factor-label">Malignant pathology</span>
-                        <span class="factor-points negative">−3 points</span>
-                    </div>
-                    <div class="factor-item protective" data-points="-2">
-                        <div class="factor-checkbox">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <span class="factor-label">Preoperative jaundice</span>
-                        <span class="factor-points negative">−2 points</span>
-                    </div>
-                    <div class="factor-item protective" data-points="-2">
-                        <div class="factor-checkbox">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <span class="factor-label">Pancreatic duct diameter ≥ 3mm</span>
                         <span class="factor-points negative">−2 points</span>
                     </div>
                     <div class="factor-item protective" data-points="-1">
@@ -888,7 +700,25 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                         </div>
-                        <span class="factor-label">Biliary stent at time of surgery</span>
+                        <span class="factor-label">Preoperative jaundice</span>
+                        <span class="factor-points negative">−1 point</span>
+                    </div>
+                    <div class="factor-item protective" data-points="-1">
+                        <div class="factor-checkbox">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <span class="factor-label">Pancreatic duct diameter ≥ 3mm</span>
+                        <span class="factor-points negative">−1 point</span>
+                    </div>
+                    <div class="factor-item protective" data-points="-1">
+                        <div class="factor-checkbox">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <span class="factor-label">Preoperative biliary stent</span>
                         <span class="factor-points negative">−1 point</span>
                     </div>
                 </div>
@@ -938,24 +768,25 @@
                     <div class="risk-ranges-title">Risk Category Definitions (Based on Validation Cohort)</div>
                     <div class="risk-range-item">
                         <span class="risk-range-indicator low"></span>
-                        <span><strong>Low Risk:</strong> Score ≤ 30 — Readmission rate ~9.9%</span>
+                        <span><strong>Low Risk:</strong> Score ≤ 5 — Observed readmission rate: 9.5%</span>
                     </div>
                     <div class="risk-range-item">
                         <span class="risk-range-indicator moderate"></span>
-                        <span><strong>Moderate Risk:</strong> Score 31–51 — Readmission rate ~14.6%</span>
+                        <span><strong>Moderate Risk:</strong> Score 6–19 — Observed readmission rate: 15.4%</span>
                     </div>
                     <div class="risk-range-item">
                         <span class="risk-range-indicator high"></span>
-                        <span><strong>High Risk:</strong> Score &gt; 51 — Readmission rate ~44.7%</span>
+                        <span><strong>High Risk:</strong> Score &gt; 19 — Observed readmission rate: 39.9%</span>
                     </div>
                     <p style="font-size: 0.8125rem; color: #718096; margin-top: 0.75rem;">
-                        <em>Note: Higher scores indicate higher readmission risk. Score of 0 = minimum possible risk.</em>
+                        <em>Score range: 0–48 points. Higher scores indicate higher readmission risk (~4-fold difference between low and high risk groups).</em>
                     </p>
                 </div>
 
                 <div class="disclaimer">
                     <div class="disclaimer-title">⚠️ Clinical Disclaimer</div>
                     <p>This calculator is intended as a clinical decision support tool only and should not replace clinical judgment. The predicted risk is based on population-level data from the ACS-NSQIP database (2015–2022) and may not accurately reflect individual patient risk. Always consider patient-specific factors and clinical context when making treatment decisions.</p>
+                    <p style="margin-top: 0.5rem;"><strong>Note on Percutaneous Drainage:</strong> The NSQIP database captures drains placed within 30 days without timing information. For this calculator, count only drains placed during the index hospitalization. The point value (+16) should be interpreted as a marker of complicated postoperative course rather than a precise causal predictor.</p>
                 </div>
             </div>
         </div>
@@ -963,38 +794,26 @@
 
     <footer class="footer">
         <p><strong>Predischarge Readmission Risk Calculator — Post Pancreatoduodenectomy</strong></p>
-        <p>Developed by J. Christopher Polanco, MD MS MPH PhD(s) using ACS-NSQIP data (2015–2022) with LASSO-based variable selection</p>
-        <p>Model validation: AUC = 0.694 (95% CI: 0.678–0.709)</p>
-        <p>&copy; 2026 | Tara S. Kent, MD MS FACS research lab </p>
+        <p>Developed using ACS-NSQIP data (2015–2022) with LASSO regression and bootstrap stability analysis</p>
+        <p>13-factor model | Validation AUC = 0.695 (95% CI: 0.680–0.710)</p>
+        <p>&copy; 2026 | J. Christopher Polanco, MD MS MPH | Tara S. Kent, MD MS FACS</p>
     </footer>
 
     <script>
-        // Configuration from LASSO model
-        const CUT_LOW = 30;      // 15th percentile (20 + 10 adjustment)
-        const CUT_HIGH = 51;     // 85th percentile (41 + 10 adjustment)
-        const SHIFT_VALUE = 25;  // Added to raw sum to make min = 0 (theoretical minimum is -25)
+        // Configuration from LASSO model (updated values)
+        const CUT_LOW = 5;       // 15th percentile
+        const CUT_HIGH = 19;     // 85th percentile
+        const SHIFT_VALUE = 9;   // Baseline adjustment (abs value of sum of protective factors)
 
         // Observed readmission rates by risk group (validation cohort)
         const RISK_RATES = {
-            low: 9.9,
-            moderate: 14.6,
-            high: 44.7
+            low: 9.5,
+            moderate: 15.4,
+            high: 39.9
         };
 
-        // Handle recovery category (radio button behavior - only one can be selected)
-        document.querySelectorAll('.factor-item.recovery').forEach(item => {
-            item.addEventListener('click', function() {
-                // Deselect all recovery items
-                document.querySelectorAll('.factor-item.recovery').forEach(i => {
-                    i.classList.remove('selected');
-                });
-                // Select this one
-                this.classList.add('selected');
-            });
-        });
-
-        // Handle other factor items (checkbox behavior)
-        document.querySelectorAll('.factor-item:not(.recovery)').forEach(item => {
+        // Handle factor items (checkbox behavior)
+        document.querySelectorAll('.factor-item').forEach(item => {
             item.addEventListener('click', function() {
                 this.classList.toggle('selected');
             });
@@ -1030,6 +849,7 @@
             const breakdownHtml = `
                 <span class="positive">Risk factors: ${positivePoints >= 0 ? '+' : ''}${positivePoints}</span>
                 <span class="negative">Protective factors: ${negativePoints}</span>
+                <span style="color: #718096;">Baseline: +${SHIFT_VALUE}</span>
             `;
             document.getElementById('scoreBreakdown').innerHTML = breakdownHtml;
 
@@ -1068,7 +888,7 @@
 
             if (selectedFactors.length === 0) {
                 const row = document.createElement('tr');
-                row.innerHTML = `<td colspan="2" style="text-align: center; color: #718096; font-style: italic;">No risk factors selected</td>`;
+                row.innerHTML = `<td colspan="2" style="text-align: center; color: #718096; font-style: italic;">No factors selected (baseline patient)</td>`;
                 summaryBody.appendChild(row);
             } else {
                 selectedFactors.forEach(factor => {
